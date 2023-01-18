@@ -1,0 +1,370 @@
+/*  
+#EAF2F8   
+#D4E6F1
+#A9CCE3
+#7FB3D5
+#5499C7
+#2980B9
+#2471A3 
+#1F618D
+#1A5276
+#154360
+    */
+
+
+    @mixin mobile{
+        @media screen  and (max-width: 480px){
+            @content
+        }
+    }
+
+    @mixin tablet{
+        @media screen  and (max-width: 768px){
+            @content
+        }
+    }
+
+    @mixin laptop{
+        @media screen  and (max-width:1200px){
+            @content
+        }
+    }
+.formContainer{
+    background-color: #154360;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formWrapper{
+        background-color: white;
+        border-radius: 10px ;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 60px;
+        gap: 10px;
+        align-items: center;
+
+        .logo{
+            color: rgb(14, 8, 1);
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .title{
+            color: #154360;
+            font-size: 12px;
+        }
+
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+
+            input{
+                padding: 15px; 
+                border: none;
+                border-bottom: 1px solid  #1A5276;
+                outline: none;
+             }
+
+            label{
+                display:flex;
+                align-items: center;
+                gap: 10px;
+                color: #1A5276;
+                font-size: 12px;
+                cursor: pointer;
+            }
+
+            button{
+                background-color:  #631f3c ;
+                color : #ffffff;
+                padding: 10px;
+                font-weight: bold;
+                border: none;
+                cursor: pointer;
+            }
+        }
+       
+
+        p{
+            color: #1A5276;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+ 
+    }
+}
+
+
+.home{
+    background-color: #A9CCE3;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    .container{
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 65%;
+        height: 80%;
+        display: flex;
+        overflow: hidden;
+        @include tablet{
+            width: 90%;
+        }
+
+        .sidebar{
+            flex: 1;
+            border-right: 1px solid white ;
+            background-color: #154360;
+            position: relative;
+
+            .navbar{
+                display: flex;
+                align-items: center;
+                background-color: #0e2c3e;
+                height: 50px;
+                padding: 10px;
+                justify-content: space-between;
+                color: white;
+
+                .logo{
+                    font-weight: bold;
+                    color: white;
+                    font-size: 12px;
+                    @include tablet{
+                        display: none;
+                    }
+                }
+
+                .user{
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+
+                    img{
+                        background-color: #ddddf7;
+                        height: 24px;
+                        width: 24px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    button{
+                        background-color: rgb(95, 95, 136);
+                        color: white;
+                        font-size: 14px;
+                        border: none;
+                        cursor: pointer;
+                        @include tablet{
+                            position: absolute;
+                            bottom: 10px;
+                        }
+                    }
+
+                }
+
+            }
+
+            .search{
+                border-bottom: 1px solid #2980B9;
+
+                .searchForm{
+                    padding: 10px;
+
+                    input{
+                        background-color: transparent;
+                        border: none;
+                        color: white;
+                        outline: none;
+                    }
+                }
+                
+            }
+
+            .chats{
+
+            
+
+                .userChats{
+
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: white;
+                    cursor: pointer;
+
+                    &:hover{
+                                background-color: #0e2c3e;
+                            }
+                            
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                   .userChatInfo{
+                    margin-top: 15px;
+                    
+                    // display: flex;
+                    // flex-direction: column;
+                        span{
+                           
+                            font-size: 18px;
+                            font-weight: 500;
+                        }    
+
+                        p{
+                            font-size: 14px;
+                            color: lightgray;
+                        }
+                    }
+
+                }
+
+
+            }
+
+
+
+
+        }
+
+        .chat{
+            flex: 2;
+
+            .chatInfo{
+                height: 50px;
+                background-color: #1A5276;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                color: lightgrey;
+               
+
+                .chatIcons{
+                    display: flex;
+                    gap: 10px;
+
+                    img{
+                    height: 24px;
+                    cursor: pointer; 
+                    }
+                }
+            }
+
+            .messages{
+                padding: 10px;
+                height: calc(100% - 160px);
+                overflow: scroll;
+                .message{
+                    display: flex;
+                    gap: 20px;
+
+                    .messageInfo{
+                        display: flex;
+                        flex-direction: column;
+                        color: gray;
+                        font-weight: 300;
+                        margin-bottom: 20px;
+                        font-size: 12px;
+
+                        img{
+                            width: 45px;
+                            height: 45px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .messageContent{
+                        max-width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        p{
+                            background-color: white;
+                            padding: 10px 20px;
+                            border-radius: 0 10px 10px 10px ; 
+                        }
+                        img{
+                            width: 50%;
+                            
+                        }
+                    }
+                    &.owner{
+                        flex-direction: row-reverse;
+
+                        .messageContent{
+                            align-items: flex-end;
+
+                            p{
+                                background-color: #2980B9;
+                                color: white;
+                                border-radius: 10px 0 10px 10px ; 
+                                max-width: max-content;
+                            }
+                        }
+                     
+                    }
+                }
+              
+                
+            }
+
+            .input{
+                height: 50px;
+                background-color: #ffffff;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                input{
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    color:  #000000;
+                    font-size: 18px;
+
+                    &::placeholder{
+                        color: lightgrey; 
+                    }
+                }
+
+                .send{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    
+                    img{
+                        height: 24px;
+                        cursor: pointer;
+                    }
+
+                    button{
+                        border: none;
+                        padding: 10px 15px;
+                        color: white;
+                        background-color: #1A5276;
+
+                    }
+                }
+            }
+
+        }
+    }
+
+
+}
